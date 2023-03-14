@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-ubuntu:focal as buildstage
+FROM akemery/baseimage-ubuntu:jammy as buildstage
 
 ARG XRDP_PULSE_VERSION=v0.4
 
@@ -51,7 +51,7 @@ RUN \
 FROM ghcr.io/linuxserver/docker-compose:amd64-latest as compose
 
 # runtime stage
-FROM ghcr.io/linuxserver/baseimage-ubuntu:focal
+FROM akemery/baseimage-ubuntu:jammy
 
 # set version label
 ARG BUILD_DATE
