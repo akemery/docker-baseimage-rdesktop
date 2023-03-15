@@ -43,7 +43,8 @@ RUN \
 USER emery
 
 RUN \
-  git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
+  apt install sudo &&\
+  sudo git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
