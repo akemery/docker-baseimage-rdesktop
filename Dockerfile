@@ -14,7 +14,7 @@ RUN \
     libpulse-dev \
     pulseaudio && \
   apt build-dep -y \
-    pulseaudio 
+    pulseaudio \
     xrdp
 
 RUN \
