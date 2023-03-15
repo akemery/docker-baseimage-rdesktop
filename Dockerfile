@@ -18,7 +18,8 @@ RUN \
     xrdp
 
 RUN \
-  echo "**** build pulseaudio modules ****" && \
+  export USER=root &&\
+  echo "**** build pulseaudio modules $USER ****" && \
   mkdir -p /buildout/var/lib/xrdp-pulseaudio-installer && \
   tmp=$(mktemp -d); cd "$tmp" && \
   pulseaudio_version=$(dpkg-query -W -f='${source:Version}' pulseaudio|awk -F: '{print $2}') && \
