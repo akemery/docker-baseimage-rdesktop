@@ -18,7 +18,7 @@ RUN \
     xrdp
 
 RUN \
-  export USER=root &&\
+  export USER=abc &&\
   echo "**** build pulseaudio modules $USER ****" && \
   mkdir -p /buildout/var/lib/xrdp-pulseaudio-installer && \
   tmp=$(mktemp -d); cd "$tmp" && \
