@@ -22,7 +22,6 @@ RUN addgroup --gid 42000 emery
 RUN useradd --create-home --uid 42000 --gid emery emery
 RUN usermod -aG sudo emery
 
-USER root
 
 RUN \
   export USER=emery && \
