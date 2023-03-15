@@ -14,8 +14,10 @@ RUN \
     libpulse-dev \
     pulseaudio && \
   apt build-dep -y \
-    pulseaudio \
-    xrdp
+    pulseaudio 
+    
+RUN \
+   apt build-dep -y xrdp
 
 RUN \
   echo "**** build pulseaudio modules ****" && \
@@ -102,7 +104,7 @@ RUN \
   rm /xrdp.deb && \
   echo "**** install docker ****" && \
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - && \
-  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable" && \
+  add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable" && \
   apt-get update && \
   apt-get install -y --no-install-recommends \
     docker-ce-cli && \
