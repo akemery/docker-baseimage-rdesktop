@@ -32,7 +32,7 @@ RUN \
   cd - && \
   git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
-  git checkout ${XRDP_PULSE_VERSION} && \
+##  git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
 ##  ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
