@@ -38,12 +38,12 @@ RUN \
   dget -u "$mirror/pool/$suite/p/pulseaudio/pulseaudio_$pulseaudio_version.dsc" && \
   cd "pulseaudio-$pulseaudio_upstream_version" && \
 ##  ./configure && \
-  cd -
+  cd - &&\
+  apt install sudo
   
 USER emery
 
 RUN \
-  apt install sudo &&\
   sudo git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
