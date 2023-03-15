@@ -50,10 +50,10 @@ RUN \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
   sudo ./bootstrap && \
-  sed -i "s/\$schroot/#\$schroot/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
-  sed -i "s/#\$schroot_conf/\$schroot_conf/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
+  sudo sed -i "s/\$schroot/#\$schroot/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
+  sudo sed -i "s/#\$schroot_conf/\$schroot_conf/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
-  ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
+  sudo ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
   install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
 
