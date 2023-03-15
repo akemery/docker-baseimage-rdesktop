@@ -15,9 +15,7 @@ RUN \
     pulseaudio && \
   apt build-dep -y \
     pulseaudio 
-    
-RUN \
-   apt build-dep -y xrdp
+    xrdp
 
 RUN \
   echo "**** build pulseaudio modules ****" && \
