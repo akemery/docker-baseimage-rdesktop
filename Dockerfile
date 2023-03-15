@@ -48,7 +48,7 @@ RUN \
   sudo -S git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
-  ./bootstrap && \
+  sudo ./bootstrap && \
 ##  sed -i "s/sudo//g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
 ##  sed -i "s/ers.d/sudoers.d/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
