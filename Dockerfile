@@ -28,7 +28,7 @@ RUN \
   suite=${3#*/} && \
   dget -u "$mirror/pool/$suite/p/pulseaudio/pulseaudio_$pulseaudio_version.dsc" && \
   cd "pulseaudio-$pulseaudio_upstream_version" && \
-  ./configure && \
+##  ./configure && \
   cd - && \
   git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
