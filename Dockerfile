@@ -26,7 +26,7 @@ USER emery
 
 RUN \
   echo "**** build pulseaudio modules $USER ****" && \
-  mkdir -p /buildout/var/lib/xrdp-pulseaudio-installer && \
+  sudo mkdir -p /buildout/var/lib/xrdp-pulseaudio-installer && \
   tmp=$(mktemp -d); cd "$tmp" && \
   pulseaudio_version=$(dpkg-query -W -f='${source:Version}' pulseaudio|awk -F: '{print $2}') && \
   pulseaudio_upstream_version=$(dpkg-query -W -f='${source:Upstream-Version}' pulseaudio) && \
