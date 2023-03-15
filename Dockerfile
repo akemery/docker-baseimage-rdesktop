@@ -34,7 +34,7 @@ RUN \
   cd pulseaudio-module-xrdp && \
   git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
-  ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
+##  ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
   install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
 
