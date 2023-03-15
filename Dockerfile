@@ -48,6 +48,7 @@ RUN \
 USER emery
 
 RUN \
+   cd pulseaudio-module-xrdp && \
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
