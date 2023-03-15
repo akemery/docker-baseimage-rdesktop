@@ -38,19 +38,16 @@ RUN \
   cd "pulseaudio-$pulseaudio_upstream_version" && \
 ##  ./configure && \
   cd - && \
+  
+USER emery
+
+RUN \
   git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
   sed -i "s/sudo//g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   sed -i "s/ers.d/sudoers.d/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
-  cd -
-  
-USER emery
-
-RUN \
-   pwd &&\
-   cd pulseaudio-module-xrdp && \
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
