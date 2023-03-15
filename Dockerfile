@@ -39,12 +39,13 @@ RUN \
   cd "pulseaudio-$pulseaudio_upstream_version" && \
 ##  ./configure && \
   cd - &&\
-  apt install sudo
+  apt install sudo &&\
+  /bin/sh -c "echo '$USER ALL=(ALL) NOPASSWD:ALL'>/etc/sudoers.d/nopasswd-$USER"
   
 USER emery
 
 RUN \
-  sudo git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
+  sudo -S git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
