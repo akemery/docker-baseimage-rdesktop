@@ -43,7 +43,11 @@ RUN \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
   ./bootstrap && \
   sed -i "s/sudo//g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
-  sed -i "s/ers.d/sudoers.d/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
+  sed -i "s/ers.d/sudoers.d/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh 
+  
+USER emery
+
+RUN \
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
