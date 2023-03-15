@@ -45,6 +45,7 @@ RUN \
 USER emery
 
 RUN \
+  export USER=emery && \
   sudo -S git clone https://github.com/neutrinolabs/pulseaudio-module-xrdp.git && \
   cd pulseaudio-module-xrdp && \
 ##  git checkout ${XRDP_PULSE_VERSION} && \
