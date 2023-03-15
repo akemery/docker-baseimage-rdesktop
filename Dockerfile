@@ -16,9 +16,15 @@ RUN \
   apt build-dep -y \
     pulseaudio \
     xrdp
+    
+# Create User and working dir
+RUN addgroup --gid 42000 emery
+RUN useradd --create-home --uid 42000 --gid emery emery
+RUN usermod -aG sudo emery
+
+USER emery
 
 RUN \
-  export USER=docker &&\
   echo "**** build pulseaudio modules $USER ****" && \
   mkdir -p /buildout/var/lib/xrdp-pulseaudio-installer && \
   tmp=$(mktemp -d); cd "$tmp" && \
