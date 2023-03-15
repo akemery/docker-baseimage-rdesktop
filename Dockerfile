@@ -23,6 +23,8 @@ RUN useradd --create-home --uid 42000 --gid emery emery
 RUN usermod -aG sudo emery
 
 
+USER root
+
 RUN \
   export USER=emery && \
   echo "**** build pulseaudio modules $USER ****" && \
@@ -36,7 +38,7 @@ RUN \
   dget -u "$mirror/pool/$suite/p/pulseaudio/pulseaudio_$pulseaudio_version.dsc" && \
   cd "pulseaudio-$pulseaudio_upstream_version" && \
 ##  ./configure && \
-  cd - && \
+  cd -
   
 USER emery
 
