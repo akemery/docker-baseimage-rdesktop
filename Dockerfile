@@ -61,8 +61,8 @@ RUN \
   echo "****  end pulse wrapper $USER ****" && \
 ##  sudo ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   sudo ./configure PULSE_DIR="/root/pulseaudio.src" && \
-  make && \
-  install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
+  sudo make && \
+  sudo install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
 
 RUN \
   echo "**** build xrdp with fuse disabled ****" && \
