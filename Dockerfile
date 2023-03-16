@@ -56,6 +56,7 @@ RUN \
   sudo sed -i "s/\/bin\/sh -c/sudo \/bin\/sh -c/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   sudo sed -i "s/#\$schroot -u root -- apt-get/apt-get/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   sudo sed -i "s/RunWrappedScript \/build\/wrapped_script  -d \/build/RunWrappedScript \$BUILDROOT\/build\/wrapped_script  -d \$BUILDROOT\/build/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
+  sudo sed -i "s/cp -pr/sudo cp -pr/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   sudo ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
