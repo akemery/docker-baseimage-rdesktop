@@ -64,16 +64,15 @@ RUN \
   sudo make && \
   sudo install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
 
-USER root
 
 RUN \
   echo "**** build xrdp with fuse disabled ****" && \
   cd /tmp && \
-  apt-get source xrdp && \
-  cd xrdp-* && \
-  sed -i 's/--enable-fuse/--disable-fuse/g' debian/rules && \
-  debuild -b -uc -us && \
-  cp -ax ../xrdp_*.deb /buildout/xrdp.deb
+  sudo apt-get source xrdp && \
+  sudo cd xrdp-* && \
+  sudo sed -i 's/--enable-fuse/--disable-fuse/g' debian/rules && \
+  sudo debuild -b -uc -us && \
+  sudo cp -ax ../xrdp_*.deb /buildout/xrdp.deb
 
 # docker compose
 FROM ghcr.io/linuxserver/docker-compose:amd64-latest as compose
