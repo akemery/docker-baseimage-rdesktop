@@ -64,6 +64,8 @@ RUN \
   sudo make && \
   sudo install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
 
+USER root
+
 RUN \
   echo "**** build xrdp with fuse disabled ****" && \
   cd /tmp && \
