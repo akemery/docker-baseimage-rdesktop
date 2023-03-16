@@ -58,6 +58,7 @@ RUN \
   sudo sed -i "s/RunWrappedScript \/build\/wrapped_script  -d \/build/RunWrappedScript \$BUILDROOT\/build\/wrapped_script  -d \$BUILDROOT\/build/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   sudo sed -i "s/cp -pr/sudo cp -pr/g" ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
   ./scripts/install_pulseaudio_sources_apt_wrapper.sh &&\
+  echo "****  end pulse wrapper $USER ****" && \
   sudo ./configure PULSE_DIR="$tmp/pulseaudio-$pulseaudio_upstream_version" && \
   make && \
   install -t "/buildout/var/lib/xrdp-pulseaudio-installer" -D -m 644 src/.libs/*.so
