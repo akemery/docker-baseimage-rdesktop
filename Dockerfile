@@ -69,7 +69,7 @@ RUN \
   echo "**** build xrdp with fuse disabled ****" && \
   cd /tmp && \
   sudo apt-get source xrdp && \
-  sudo cd xrdp-* && \
+  cd xrdp-* && \
   sudo sed -i 's/--enable-fuse/--disable-fuse/g' debian/rules && \
   sudo debuild -b -uc -us && \
   sudo cp -ax ../xrdp_*.deb /buildout/xrdp.deb
